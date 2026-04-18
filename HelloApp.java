@@ -1,15 +1,24 @@
 class HelloApp {
     public static void main(String[] args) {
 
-        // Default value
-        String name = "World";
+        // Check if no arguments
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
+        } else {
 
-        // Check if user provided input
-        if (args.length > 0) {
-            name = args[0];
+            // StringBuilder to build names
+            StringBuilder names = new StringBuilder();
+
+            // Enhanced for loop
+            for (String name : args) {
+                if (names.length() > 0) {
+                    names.append(", ");
+                }
+                names.append(name);
+            }
+
+            // Print final greeting
+            System.out.println("Hello, " + names + "!");
         }
-
-        // Print greeting
-        System.out.println("Hello, " + name + "!");
     }
 }
