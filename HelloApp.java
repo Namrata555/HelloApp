@@ -1,24 +1,34 @@
-class HelloApp {
+// HelloApp.java
+// UC4: Display multiple names or default "World"
+
+public class HelloApp {
+
     public static void main(String[] args) {
 
-        // Check if no arguments
+        // Variable to store names
+        String name;
+
+        // Check if arguments are passed
         if (args.length == 0) {
-            System.out.println("Hello, World!");
+            // Default value
+            name = "World";
         } else {
+            // Build names using StringBuilder
+            StringBuilder nameBuilder = new StringBuilder();
 
-            // StringBuilder to build names
-            StringBuilder names = new StringBuilder();
+            for (int i = 0; i < args.length; i++) {
+                nameBuilder.append(args[i]);
 
-            // Enhanced for loop
-            for (String name : args) {
-                if (names.length() > 0) {
-                    names.append(", ");
+                // Add comma except for last name
+                if (i < args.length - 1) {
+                    nameBuilder.append(", ");
                 }
-                names.append(name);
             }
 
-            // Print final greeting
-            System.out.println("Hello, " + names + "!");
+            name = nameBuilder.toString();
         }
+
+        // Print output
+        System.out.println("Hello, " + name + "!");
     }
 }
